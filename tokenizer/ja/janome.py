@@ -10,7 +10,7 @@ class JanomeTokenizer(object):
         self._t = Tokenizer(udic=udic_path, udic_enc=udic_enc)
 
     def separate_words(self, sent):
-        words = [token.surface for token in self._t.tokenize(sent)]
+        words = [token.surface for token in self.tokenize(sent)]
 
         return words
 
