@@ -6,8 +6,8 @@ from janome.tokenizer import Tokenizer
 
 class JanomeTokenizer(object):
 
-    def __init__(self):
-        self._t = Tokenizer()
+    def __init__(self, udic_path='', udic_enc='utf8'):
+        self._t = Tokenizer(udic=udic_path, udic_enc=udic_enc)
 
     def separate_words(self, sent):
         words = [token.surface for token in self._t.tokenize(sent)]
