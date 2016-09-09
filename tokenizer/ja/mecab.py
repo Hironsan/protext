@@ -7,7 +7,12 @@ import MeCab
 class MeCabTokenizer(object):
 
     def __init__(self, user_dic_path='', sys_dic_path=''):
-        self._t = MeCab.Tagger('-Ochasen')
+        option = '-Ochasen'
+        if user_dic_path:
+            option += ' -u {0}'.format(user_dic_path)
+        if sys_dic_path:
+            option += ' -u {0}'.format(sys_dic_path)
+        self._t = MeCab.Tagger(option)
 
     def separate_words(self, sent):
         words = [token.surface for token in self.tokenize(sent)]
