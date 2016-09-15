@@ -1,5 +1,10 @@
+from pprint import pprint
+
 from gensim import corpora
-from dictionary.remove_words import remove_words_less_than_n
+from .remove_words import remove_words_less_than_n
+from .remove_stopwords import remove_stopwords
+
+
 documents = ["Human machine interface for lab abc computer applications",
              "A survey of user opinion of computer system response time",
              "The EPS user interface management system",
@@ -11,30 +16,20 @@ documents = ["Human machine interface for lab abc computer applications",
              "Graph minors A survey"]
 
 
-
-
 def tokenize(sent):
     words = [word for word in sent.lower().split()]
 
     return words
 
-# remove common words and tokenize
 
-
-texts = [[word for word in document.lower().split() if word not in stoplist]
-         for document in documents]
-
-
+texts = [[word for word in tokenize(document)] for document in documents]
+texts = [remove_stopwords(words) for words in texts]
 texts = remove_words_less_than_n(texts)
 
-from pprint import pprint  # pretty-printer
+
 pprint(texts)
 
 dictionary = corpora.Dictionary(texts)
 dictionary.save('deerwester.dict')  # store the dictionary, for future reference
-print(dictionary)
-
 print(dictionary.token2id)
 print(dict(dictionary.items()))
-print(dictionary.iteritems())
-print(dir(dictionary))
