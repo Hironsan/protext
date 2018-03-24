@@ -19,3 +19,6 @@ class TestProText(unittest.TestCase):
 
     def test_noun_phrases(self):
         self.assertEqual(self.doc.noun_phrases, ['Janome', '形態素解析器'])
+
+    def test_readings(self):
+        self.assertEqual(self.doc.readings, ['*', 'ハ', 'ケイタイソ', 'カイセキ', 'キ'])

@@ -23,5 +23,9 @@ class ProText(object):
     def noun_phrases(self):
         return [token.surface for token in self.tokenizer.noun_phrases(self.text)]
 
+    @property
+    def readings(self):
+        return [token.reading for token in self.tokenizer.tokenize(self.text)]
+
     def sentences(self):
         pass
