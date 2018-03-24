@@ -12,6 +12,10 @@ class ProText(object):
         pass
 
     @property
+    def words(self):
+        return [token.surface for token in self.tokenizer.tokenize(self.text)]
+
+    @property
     def tags(self):
         return [(token.surface, token.pos) for token in self.tokenizer.tokenize(self.text)]
 
