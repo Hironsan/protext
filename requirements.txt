@@ -10,7 +10,7 @@ idna==2.6
 Janome==0.3.6
 jmespath==0.9.3
 mecab-python3==0.7
-numpy==1.14.2
+numpy==1.22.0
 python-dateutil==2.6.1
 requests==2.18.4
 s3transfer==0.1.13
